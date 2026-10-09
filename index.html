@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}</style>
+<title>Jade May</title>
+<meta name="description" content="Jade May, M.S.Ed. in Higher Education Administration. Student engagement, basic needs, academic success, and LGBTQ inclusion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column with a wide name masthead; experience runs as a dated ledger with a mono date gutter. */
+:root {
+  --paper: #f3f6f4;
+  --surface: #ffffff;
+  --ink: #17231e;
+  --muted: #56655e;
+  --rule: #cfdad4;
+  --jade: #1f7a5c;
+  --jade-soft: #dcefe6;
+
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --s-1: 0.8125rem;
+  --s0: 1.0625rem;
+  --s1: 1.25rem;
+  --s2: 1.75rem;
+  --s3: clamp(2.75rem, 8vw, 5.5rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0f1714;
+    --surface: #16211c;
+    --ink: #e4ece8;
+    --muted: #9aaba3;
+    --rule: #2a3a33;
+    --jade: #5fc7a0;
+    --jade-soft: #1b3329;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f1714;
+  --surface: #16211c;
+  --ink: #e4ece8;
+  --muted: #9aaba3;
+  --rule: #2a3a33;
+  --jade: #5fc7a0;
+  --jade-soft: #1b3329;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--s0);
+  line-height: 1.6;
+  padding-inline: 20px;
+}
+.wrap { max-width: 880px; margin-inline: auto; padding-block: 56px 72px; display: grid; gap: 72px; }
+a { color: var(--jade); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--jade); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.label {
+  font-family: var(--mono); font-size: var(--s-1); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* Masthead */
+header { display: grid; gap: 22px; }
+.status {
+  justify-self: start; display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: var(--s-1); color: var(--jade);
+  background: var(--jade-soft); padding: 5px 12px; border-radius: 999px;
+}
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--jade); }
+h1 { font-size: var(--s3); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; }
+h1 .cred { font-weight: 400; color: var(--muted); font-size: 0.32em; letter-spacing: 0; vertical-align: 0.9em; margin-left: 0.3em; }
+.thesis { font-size: var(--s1); max-width: 36em; line-height: 1.5; }
+.thesis em { color: var(--jade); font-style: italic; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--mono); font-size: 0.9rem; }
+
+/* Sections */
+section { display: grid; gap: 28px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 10px; }
+h2 { font-size: var(--s2); font-weight: 600; letter-spacing: -0.01em; }
+
+/* Focus areas */
+.areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.area { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.area h3 { font-size: 1.125rem; font-weight: 600; }
+.area p { color: var(--muted); font-size: 0.975rem; }
+.area .comp { font-family: var(--mono); font-size: 0.75rem; color: var(--jade); letter-spacing: 0.04em; }
+
+/* Experience ledger */
+.ledger { display: grid; gap: 40px; }
+.role { display: grid; grid-template-columns: 9.5rem 1fr; gap: 8px 28px; }
+.when { font-family: var(--mono); font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 4px; display: grid; gap: 4px; align-content: start; }
+.when .fte { color: var(--jade); }
+.role h3 { font-size: var(--s1); font-weight: 600; line-height: 1.3; }
+.role .org { color: var(--muted); font-style: italic; }
+.role ul { margin: 12px 0 0; padding-left: 1.1em; display: grid; gap: 8px; max-width: 62ch; }
+.role li::marker { color: var(--jade); }
+.figure { font-family: var(--mono); font-size: 0.9em; background: var(--jade-soft); color: var(--ink); padding: 0 5px; border-radius: 3px; white-space: nowrap; }
+
+/* Research callout */
+.research { background: var(--surface); border: 1px solid var(--rule); border-left: 0; border-radius: 6px; display: grid; grid-template-columns: auto 1fr; overflow: hidden; }
+.research .n { background: var(--jade); color: var(--paper); font-family: var(--display); font-weight: 800; display: grid; place-content: center; padding: 24px 28px; text-align: center; line-height: 1; }
+.research .n span { font-size: 2.6rem; }
+.research .n small { display: block; font-family: var(--mono); font-weight: 400; font-size: 0.75rem; margin-top: 6px; letter-spacing: 0.06em; }
+.research .body { padding: 24px; display: grid; gap: 10px; }
+.research h3 { font-size: var(--s1); font-weight: 600; line-height: 1.3; }
+.research p { color: var(--muted); max-width: 60ch; }
+
+/* Education */
+.edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+.degree { display: grid; gap: 6px; align-content: start; }
+.degree h3 { font-size: var(--s1); font-weight: 600; line-height: 1.3; }
+.degree .meta { font-family: var(--mono); font-size: 0.875rem; color: var(--muted); }
+.degree ul { margin: 8px 0 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--muted); font-size: 0.975rem; }
+.degree li::marker { color: var(--jade); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.chip { font-size: 0.875rem; border: 1px solid var(--rule); border-radius: 999px; padding: 3px 12px; background: var(--surface); }
+
+footer { border-top: 1px solid var(--rule); padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: baseline; }
+footer p { font-family: var(--display); font-size: var(--s1); font-weight: 600; }
+
+@media (max-width: 620px) {
+  .wrap { gap: 56px; padding-block: 36px 56px; }
+  .role { grid-template-columns: 1fr; }
+  .when { grid-auto-flow: column; justify-content: start; gap: 14px; padding-top: 0; }
+  .research { grid-template-columns: 1fr; }
+  h1 .cred { display: block; vertical-align: 0; margin: 10px 0 0; font-size: 0.3em; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="status">Open to higher education roles</span>
+    <h1>Jade May<span class="cred">M.S.Ed.</span></h1>
+    <p class="thesis">Higher education professional focused on <em>student basic needs</em>, <em>academic success</em>, and <em>LGBTQ inclusion</em>. I build the programs and spaces that help students stay enrolled and feel they belong.</p>
+    <div class="contact">
+      <a href="mailto:jademarenmay@gmail.com">jademarenmay@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jademay1208" target="_blank" rel="noopener">linkedin.com/in/jademay1208</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="areas-h">
+    <div class="sec-head">
+      <h2 id="areas-h">Where I work best</h2>
+      <span class="label">Mapped to ACPA/NASPA competencies</span>
+    </div>
+    <div class="areas">
+      <div class="area">
+        <span class="comp">Student Learning &amp; Development</span>
+        <h3>Basic needs &amp; engagement</h3>
+        <p>Ran Campus Cupboard operations and campus food, clothing, and item drives at the KU Student Engagement Center.</p>
+      </div>
+      <div class="area">
+        <span class="comp">Advising &amp; Supporting</span>
+        <h3>Advising &amp; orientation</h3>
+        <p>Advised 45 incoming students at drop-in sessions and supported SOAR event days at Rockhurst University.</p>
+      </div>
+      <div class="area">
+        <span class="comp">Social Justice &amp; Inclusion</span>
+        <h3>LGBTQ inclusion</h3>
+        <p>Trained student success staff on LGBTQ inclusion, helped plan the Kansas Drag Showcase, and researched LGBTQ mental health.</p>
+      </div>
+      <div class="area">
+        <span class="comp">Assessment, Evaluation &amp; Research</span>
+        <h3>Assessment &amp; research</h3>
+        <p>Used data collection to improve a food insecurity workshop. Designed and ran an independent study with 400 participants.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="exp-h">
+    <div class="sec-head">
+      <h2 id="exp-h">Experience</h2>
+      <span class="label">Most recent first</span>
+    </div>
+    <div class="ledger">
+      <article class="role">
+        <div class="when"><span>07/24 – 05/26</span><span class="fte">0.5 FTE</span></div>
+        <div>
+          <h3>Graduate Assistant, Student Engagement Center</h3>
+          <p class="org">University of Kansas</p>
+          <ul>
+            <li>Coordinated campus food, clothing, and item drives that stocked the closets and pantries in the Student Engagement Center.</li>
+            <li>Managed Campus Cupboard inventory, stocked shelves, coordinated food runs, and kept the pantry clean and organized.</li>
+            <li>Improved a workshop on food insecurity and the Campus Cupboard for KU students, staff, and faculty through data collection.</li>
+            <li>Served on the Kansas Drag Showcase planning committee, coordinated marketing design, and helped run the event.</li>
+            <li>Supervised <span class="figure">1</span> undergraduate student employee, focusing on inclusive programming materials.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="role">
+        <div class="when"><span>06/25 – 07/25</span><span class="fte">0.5 FTE</span></div>
+        <div>
+          <h3>Graduate Intern, Office of Student Success</h3>
+          <p class="org">Rockhurst University</p>
+          <ul>
+            <li>Assisted with drop-in academic advising for <span class="figure">45</span> incoming students, guiding them through their academic interests.</li>
+            <li>Supported daily operations of Summer Orientation, Advising, &amp; Registration (SOAR) event days for a student-centered experience.</li>
+            <li>Helped rebrand Student Accessibility Services by creating and distributing new marketing materials.</li>
+            <li>Adapted and presented an LGBTQ inclusion training for supplemental instruction and tutoring staff to the <span class="figure">8</span>-person Student Success Center team.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="role">
+        <div class="when"><span>08/22 – 04/24</span><span class="fte">0.5 FTE</span></div>
+        <div>
+          <h3>Undergraduate Research Assistant</h3>
+          <p class="org">University of Illinois Chicago</p>
+          <ul>
+            <li>Developed and designed an independent research project under faculty mentorship.</li>
+            <li>Secured a <span class="figure">$2,500</span> scholarship and <span class="figure">$500</span> in additional research funding.</li>
+            <li>Presented findings at UIC's Undergraduate Research Forum.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="res-h">
+    <div class="sec-head">
+      <h2 id="res-h">Research</h2>
+      <span class="label">UIC · LASURI scholar</span>
+    </div>
+    <div class="research">
+      <div class="n"><span>n = 400</span><small>PARTICIPANTS</small></div>
+      <div class="body">
+        <h3>The mental health effects of geographic location on LGBTQ individuals</h3>
+        <p>An independent study I designed and carried out under faculty mentorship, funded through the Liberal Arts &amp; Sciences Undergraduate Research Initiative and presented at UIC's Undergraduate Research Forum.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="edu-h">
+    <div class="sec-head">
+      <h2 id="edu-h">Education</h2>
+    </div>
+    <div class="edu">
+      <div class="degree">
+        <span class="label">05/26</span>
+        <h3>M.S. in Education, Higher Education Administration</h3>
+        <p class="meta">University of Kansas · GPA 4.0</p>
+        <div class="chips">
+          <span class="chip">Student Development Theory</span>
+          <span class="chip">Access, Persistence, &amp; Success</span>
+          <span class="chip">Assessment &amp; Program Evaluation</span>
+        </div>
+      </div>
+      <div class="degree">
+        <span class="label">05/24</span>
+        <h3>B.S. in Psychology</h3>
+        <p class="meta">University of Illinois Chicago</p>
+        <ul>
+          <li>LASURI Scholarship recipient, 2023 ($2,500)</li>
+          <li>Dean's List, College of Liberal Arts &amp; Sciences, Spring 2023 – Spring 2024</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Let's talk about your students.</p>
+    <a href="mailto:jademarenmay@gmail.com">jademarenmay@gmail.com</a>
+  </footer>
+</div>
+</body>
+</html>

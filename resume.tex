@@ -1,0 +1,88 @@
+% Jade May résumé. Build with: xelatex resume.tex
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\setmainfont{Charter}
+\newfontfamily\headfont{Avenir Next}[UprightFont=* Demi Bold, BoldFont=* Bold]
+\newfontfamily\monofont{Menlo}[Scale=0.85]
+
+\definecolor{jade}{HTML}{1F7A5C}
+\definecolor{ink}{HTML}{17231E}
+\definecolor{muted}{HTML}{56655E}
+\definecolor{rule}{HTML}{B9CAC1}
+\color{ink}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.06}
+\hyphenpenalty=5000\exhyphenpenalty=5000
+
+\renewcommand{\section}[1]{%
+  \vspace{11pt}%
+  {\headfont\color{jade}\fontsize{10}{12}\selectfont\addfontfeatures{LetterSpace=12}\MakeUppercase{#1}}\par
+  \vspace{2pt}{\color{rule}\hrule height 0.6pt}\vspace{6pt}}
+
+% \role{Title}{Dates}{Organization}{Note}
+\newcommand{\role}[4]{%
+  {\headfont #1}\hfill{\monofont\color{muted}#2}\par
+  {\itshape #3}\ifx&#4&\else{\color{muted}\ \textperiodcentered\ #4}\fi\par\vspace{2pt}}
+
+\newenvironment{points}{%
+  \begin{list}{\textcolor{jade}{\textbullet}}{%
+    \setlength{\leftmargin}{1.1em}\setlength{\labelsep}{0.5em}%
+    \setlength{\itemsep}{1.5pt}\setlength{\parsep}{0pt}\setlength{\topsep}{2pt}}}%
+  {\end{list}\vspace{7pt}}
+
+\begin{document}
+
+{\headfont\fontsize{26}{28}\selectfont Jade May}\par
+\vspace{5pt}
+{\color{muted}\small
+\href{mailto:jademarenmay@gmail.com}{jademarenmay@gmail.com}\enspace\textperiodcentered\enspace
+(773) 682-9509\enspace\textperiodcentered\enspace
+\href{https://www.linkedin.com/in/jademay1208}{linkedin.com/in/jademay1208}\enspace\textperiodcentered\enspace
+\href{https://sh3ll3hs.github.io/jade-may/}{\textcolor{jade}{Portfolio: sh3ll3hs.github.io/jade-may}}}\par
+
+\section{Education}
+
+\role{Master of Science in Education, Higher Education Administration}{05/26}{University of Kansas, Lawrence, KS}{GPA: 4.0}
+{\small\color{muted}Relevant coursework: Student Development Theory; Access, Persistence, \& Success; Assessment and Program Evaluation in Higher Education}\par
+\vspace{8pt}
+
+\role{Bachelor of Science, Psychology}{05/24}{University of Illinois Chicago, Chicago, IL}{}
+\begin{points}
+  \item Recipient of Liberal Arts \& Sciences Undergraduate Research Initiative (LASURI) Scholarship, 2023, \$2,500
+  \item Dean's List, University of Illinois Chicago College of Liberal Arts \& Sciences, Spring 2023 -- Spring 2024
+\end{points}
+
+\section{Related Experience}
+
+\role{Graduate Assistant, Student Engagement Center}{07/24–05/26}{University of Kansas}{Part-time, 0.5 FTE}
+\begin{points}
+  \item Coordinated the development and implementation of campus food, clothing, and item drives that support the closets and pantries within the Student Engagement Center
+  \item Enhanced a workshop through data collection for KU students, staff, and faculty on food insecurity and the Campus Cupboard
+  \item Served on the planning committee for Kansas Drag Showcase, coordinated marketing design, and assisted with event coordination
+  \item Managed Campus Cupboard inventory, stocked shelves, coordinated food runs, and maintained cleanliness and organization of the pantry
+  \item Supervised one undergraduate student employee, focusing on inclusive programming materials
+\end{points}
+
+\role{Graduate Intern, Office of Student Success}{06/25–07/25}{Rockhurst University}{Part-time, 0.5 FTE}
+\begin{points}
+  \item Assisted with drop-in academic advising sessions for 45 incoming students, guiding them through their academic interests and pursuits
+  \item Supported the daily operations of Summer Orientation, Advising, \& Registration (SOAR) event days to ensure a student-centered experience
+  \item Aided the rebrand of Student Accessibility Services (SAS) through the creation and distribution of new marketing materials
+  \item Adapted and presented a training on LGBTQ inclusion for supplemental instruction and tutoring student staff to the Student Success Center team of 8 staff members
+\end{points}
+
+\role{Undergraduate Research Assistant}{08/22–04/24}{University of Illinois Chicago}{Part-time, 0.5 FTE}
+\begin{points}
+  \item Developed and designed an independent research project (n = 400) under faculty mentorship on the mental health effects of geographic location on LGBTQ individuals
+  \item Secured a \$2,500 scholarship and an additional \$500 of research funding from an undergraduate research scholarship program
+  \item Presented research findings at UIC's Undergraduate Research Forum
+\end{points}
+
+\end{document}

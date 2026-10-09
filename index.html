@@ -137,19 +137,15 @@ h1 .cred { display: block; font-family: var(--body); font-style: italic; font-we
 .thesis em { font-style: normal; color: var(--jade); font-weight: 600; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-.portrait { margin: 0; justify-self: center; width: 100%; max-width: 360px; padding-right: 18px; }
+.portrait { margin: 0; justify-self: center; width: 100%; max-width: 340px; padding: 10px; }
 .frame { position: relative; }
-.frame::before {
-  content: ""; position: absolute; inset: 18px -18px -18px 18px;
-  border-radius: 50% 50% 20px 20px / 40% 40% 20px 20px;
-  background: var(--jade-soft); border: 1.5px solid var(--jade);
-}
 .portrait img {
-  position: relative; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 28%;
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
   border-radius: 50% 50% 20px 20px / 40% 40% 20px 20px;
+  box-shadow: 0 0 0 6px var(--paper), 0 0 0 7.5px var(--jade);
 }
 .portrait figcaption {
-  position: relative; margin-top: 34px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-align: center; letter-spacing: 0.04em;
+  margin-top: 22px; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-align: center; letter-spacing: 0.04em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -293,7 +289,7 @@ h2 { font-size: var(--s2); font-weight: 600; letter-spacing: -0.015em; line-heig
       </div>
     </div>
     <figure class="portrait">
-      <div class="frame"><img src="jade.jpg" width="900" height="1200" alt="Portrait of Jade May smiling, wearing a burgundy top, in front of a sunlit window."></div>
+      <div class="frame"><img src="jade.jpg" width="900" height="1125" alt="Portrait of Jade May smiling, wearing a burgundy top, in front of a sunlit window."></div>
       <figcaption>Lawrence, KS · Chicago, IL</figcaption>
     </figure>
   </div>
